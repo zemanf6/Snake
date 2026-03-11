@@ -54,9 +54,6 @@ internal sealed class ConsoleRenderer : IRenderer
         Console.Write($"Game over, score: {snakeLength}");
     }
 
-    /// <summary>
-    /// Draws the border of the game area.
-    /// </summary>
     private void DrawBorder()
     {
         Console.ForegroundColor = ConsoleColor.White;
@@ -80,10 +77,6 @@ internal sealed class ConsoleRenderer : IRenderer
         }
     }
 
-    /// <summary>
-    /// Draws the snake's body.
-    /// </summary>
-    /// <param name="bodySegments">The collection of snake body segments.</param>
     private static void DrawBody(IEnumerable<Position> bodySegments)
     {
         Console.ForegroundColor = ConsoleColor.Green;
@@ -95,10 +88,6 @@ internal sealed class ConsoleRenderer : IRenderer
         }
     }
 
-    /// <summary>
-    /// Draws the snake's head.
-    /// </summary>
-    /// <param name="head">The position of the snake's head.</param>
     private static void DrawHead(Position head)
     {
         Console.ForegroundColor = ConsoleColor.Red;
@@ -106,10 +95,6 @@ internal sealed class ConsoleRenderer : IRenderer
         Console.Write(Block);
     }
 
-    /// <summary>
-    /// Draws the food.
-    /// </summary>
-    /// <param name="food">The position of the food.</param>
     private static void DrawFood(Position food)
     {
         Console.ForegroundColor = ConsoleColor.Cyan;

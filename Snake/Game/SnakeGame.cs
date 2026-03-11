@@ -72,9 +72,6 @@ internal sealed class SnakeGame
         _renderer.ShowGameOver(_snakeLength);
     }
 
-    /// <summary>
-    /// Creates the initial snake body so that it matches the configured length.
-    /// </summary>
     private void InitializeSnake()
     {
         for (int offset = _snakeLength - 1; offset >= 1; offset--)
@@ -83,20 +80,12 @@ internal sealed class SnakeGame
         }
     }
 
-    /// <summary>
-    /// Returns the next head position based on the current movement direction.
-    /// </summary>
     private Position GetNextHeadPosition()
     {
         Position offset = _direction.ToOffset();
         return _head.Translate(offset.X, offset.Y);
     }
 
-    /// <summary>
-    /// Moves the snake and extends it when food is collected.
-    /// </summary>
-    /// <param name="nextHead">The new head position.</param>
-    /// <param name="growsOnThisMove">Indicates whether the snake should grow during this move.</param>
     private void MoveSnake(Position nextHead, bool growsOnThisMove)
     {
         _bodySegments.Add(_head);
@@ -111,9 +100,6 @@ internal sealed class SnakeGame
         TrimBodyToCurrentLength();
     }
 
-    /// <summary>
-    /// Keeps the number of body segments consistent with the current snake length.
-    /// </summary>
     private void TrimBodyToCurrentLength()
     {
         while (_bodySegments.Count > _snakeLength - 1)
@@ -122,10 +108,6 @@ internal sealed class SnakeGame
         }
     }
 
-    /// <summary>
-    /// Determines whether the next head position collides with a wall.
-    /// </summary>
-    /// <param name="position">The head position to test.</param>
     private bool IsWallCollision(Position position)
     {
         return position.X <= 0 ||
@@ -134,15 +116,6 @@ internal sealed class SnakeGame
                position.Y >= _settings.ScreenHeight - 1;
     }
 
-    /// <summary>
-    /// Determines whether the next head position collides with the snake's body.
-    /// </summary>
-    /// <param name="nextHead">The next head position to test.</param>
-    /// <param name="growsOnThisMove">
-    /// Indicates whether the snake grows during the current move. If it does not grow,
-    /// the last tail segment is released during the same move and does not need to be
-    /// included in the collision check.
-    /// </param>
     private bool IsSelfCollision(Position nextHead, bool growsOnThisMove)
     {
         int firstSegmentIndexToCheck = growsOnThisMove ? 0 : 1;
@@ -163,9 +136,6 @@ internal sealed class SnakeGame
         return false;
     }
 
-    /// <summary>
-    /// Generates a new food position inside the game area and outside the snake's body.
-    /// </summary>
     private Position GenerateFoodPosition()
     {
         Position candidate;

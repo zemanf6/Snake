@@ -1,8 +1,5 @@
 ﻿namespace Snake;
 
-/// <summary>
-/// Entrypoint of the console-based Snake game.
-/// </summary>
 internal static class Program
 {
     private const int ScreenWidth = 32;
@@ -10,9 +7,6 @@ internal static class Program
     private const int TickMilliseconds = 500;
     private const int InitialSnakeLength = 5;
 
-    /// <summary>
-    /// Runs the Snake game. Initializes the game settings, renderer, and input reader, then starts the game loop.
-    /// </summary>
     private static void Main()
     {
         var settings = new GameSettings(

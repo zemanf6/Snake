@@ -67,11 +67,6 @@ internal sealed class ConsoleInputReader : IInputReader
         return nextDirection;
     }
 
-    /// <summary>
-    /// Maps an arrow key to its corresponding movement direction.
-    /// </summary>
-    /// <param name="key">The pressed key.</param>
-    /// <returns>The corresponding direction, or <see langword="null"/> if the key is not supported.</returns>
     private static Direction? MapKeyToDirection(ConsoleKey key)
     {
         return key switch
